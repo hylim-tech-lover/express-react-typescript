@@ -1,11 +1,3 @@
-import Post from './Post';
-import Get from './Get';
-import Delete from './Delete';
-import Put from './Put';
+import Get from "./Get";
 
-export {
-    Post,
-    Get,
-    Delete,
-    Put,
-}
+export { Get };

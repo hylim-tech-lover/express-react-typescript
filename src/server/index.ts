@@ -1,38 +1,36 @@
+import express, { Express } from "express";
+import { RequestHandler } from "express-serve-static-core";
+import open from "open";
+import * as routes from "./routes";
 
-import express, {Request, Response, Router, Express} from 'express';
-import router from './route';
-import DBConnect from "./dbConfigs";
-import { RequestHandler } from 'express-serve-static-core';
+//global variable to store postedJSON data. Not advisable for production use
+const postedData: { unknown: any }[] = [];
+const completeData: { unknown: any }[] = [];
 
 // call express
 const app: Express = express(); // define our app using express
 
 // configure app to use bodyParser for
 // Getting data from body of requests
-app.use(express.urlencoded({extended: true}) as RequestHandler);
-
-app.use(express.json() as RequestHandler) 
-
-
-const port: number = Number(process.env.PORT) || 8050; // set our port
-
-// connect to database. right now it's just working with mongodb
-// but in near future it will be configured for other databases as well
-DBConnect.dbConnection();
-
-// Send index.html on root request
-app.use(express.static('dist'));
-app.get('/', (req:Request, res:Response) => {
-    console.log('sending index.html');
-    res.sendFile('/dist/index.html');
+app.use(express.urlencoded({ extended: true }) as RequestHandler);
+app.use(express.json() as RequestHandler);
+app.use(function (req, res, next) {
+  res.header("Access-Control-Allow-Origin", "*");
+  res.header(
+    "Access-Control-Allow-Headers",
+    "Origin, X-Requested-With, Content-Type, Accept, Authorization"
+  );
+  res.header("Access-Control-Allow-Methods", "PUT, POST, GET, DELETE, OPTIONS");
+  next();
 });
+app.use(express.static("dist"));
+const port = 3000; // set our port
 
 // REGISTER ROUTES
-// all of the routes will be prefixed with /api
-const routes: Router[] = Object.values(router);
-app.use('/api', routes);
+routes.register(app, postedData, completeData);
 
 // START THE SERVER
 // =============================================================================
 app.listen(port);
-console.log(`App listening on ${port}`);
+console.log(`App listening at http://localhost:${port}`);
+open(`http://localhost:${port}`);
