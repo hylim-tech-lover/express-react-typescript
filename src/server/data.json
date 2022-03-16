@@ -1,29 +1,30 @@
 {
-    "status": "success",
-	"transactions": [
-        {
-			"id": "1",
-			"created": "2022-03-14T09:01:07+08:00",
-			"updated": "2022-03-14T17:01:07+08:00",
-			"currentState": "CONFIRMED",
-            "amount": 1200,
-			"currency": "GBP"
+	"status": "success",
+	"transactions":
+	  [
+		{
+		  "id": "1",
+		  "created": "2022-03-14T09:01:07+08:00",
+		  "updated": "2022-03-14T17:01:07+08:00",
+		  "currentState": "CONFIRMED",
+		  "amount": 1200,
+		  "currency": "GBP"
 		},
 		{
-			"id": "2",
-			"created": "2022-03-15T10:01:08+08:00",
-			"updated": "2022-03-15T12:01:58+08:00",
-			"currentState": "PROCESSED",
-            "amount": 1800,
-			"currency": "SGD"
+		  "id": "2",
+		  "created": "2022-03-15T10:01:08+08:00",
+		  "updated": "2022-03-15T12:01:58+08:00",
+		  "currentState": "PROCESSED",
+		  "amount": 1800,
+		  "currency": "SGD"
 		},
 		{
-			"id": "3",
-			"created": "2022-03-15T16:01:07+02:00",
-			"updated": "2022-03-15T16:01:07+02:00",
-            "currentState": "CREATED",
-			"amount": 0.02,
-			"currency": "ETH"
+		  "id": "3",
+		  "created": "2022-03-15T16:01:07+02:00",
+		  "updated": "2022-03-15T16:01:07+02:00",
+		  "currentState": "CREATED",
+		  "amount": 0.02,
+		  "currency": "ETH"
 		}
-	]
-}
+	   ]
+  }
