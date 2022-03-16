@@ -33,7 +33,7 @@ If the build is successfully, an endpoint to ```localhost:3000``` will be launch
 
 The table entries are injected from [data.json](src/server/data.json) which emulates financial transactions and be mindful that each column can be sorted ascendingly or descendingly by hovering over the column header. 
 
-![React Sortable Table]()
+![React Sortable Table](https://i.gyazo.com/496d6b6dfa8dc91e095b760a41dedc57.png)
  
 ## Available APIs
 
